@@ -1,9 +1,9 @@
 // Defining the pins for buttons and LEDs
 
-int button1Pin = 3; // Pin 3 is assigned to button 1
-int button2Pin = 2; // Pin 2 is assigned to button 2
-int led1Pin = 4; // Pin 4 will be Led1 terminal
-int led2Pin = 5; // Pin 5 will be for Led2
+int button1Pin = 27; // Pin 3 is assigned to button 1
+int button2Pin = 12; // Pin 2 is assigned to button 2
+int led1Pin = 34; // Pin 4 will be Led1 terminal
+int led2Pin = 32; // Pin 5 will be for Led2
 
 // Calculating the Paramater using my surname "ARORA"
 // A - 1, R-9, O-12, R-9, A-1.  ARORA = 1 9 12 9 1
@@ -38,14 +38,14 @@ void loop() {
     {
       
       digitalWrite(led2Pin, HIGH); // First blink of the red light
-      delay(50); // Passing the delay for the HIGH red light
+      delayMicroseconds(50); // Passing the delay for the HIGH red light
       digitalWrite(led2Pin, LOW); // Putting off the red light 
 
       for (int i = 0; i < c; i++) //For loop for the Led1
       {
         
         digitalWrite(led1Pin, HIGH);
-        delay(a + (i * 50));
+        delayMicroseconds(a + (i * 50));
         digitalWrite(led1Pin, LOW);
         delay(b);
       }
@@ -56,18 +56,18 @@ void loop() {
     {
       
       digitalWrite(led2Pin, HIGH);
-      delay(50);
+      delayMicroseconds(50);
       digitalWrite(led2Pin, LOW);
     // disable stream of pulses
       
       for (int i = c; i > 0; i--)
       {
         digitalWrite(led1Pin, HIGH);
-        delay(a + ((i - 1) * 50));
+        delayMicroseconds(a + ((i - 1) * 50));
         digitalWrite(led1Pin, LOW);
-        delay(b);
+        delayMicroseconds(b);
       }
-      delay(d);
+      delayMicroseconds(d);
     }
   }
   else 
