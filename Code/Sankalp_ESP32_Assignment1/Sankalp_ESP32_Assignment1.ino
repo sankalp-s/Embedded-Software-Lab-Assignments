@@ -32,47 +32,46 @@ void loop() {
   button1State = digitalRead(button1Pin); //Fetches the state of button1 to know if its at LOW or HIGH state
   button2State = digitalRead(button2Pin); //Fetches state of the second button
   
-  if (button1State == LOW)    // If switch one is low jump to cases on switch 2
+  if (button1State == LOW)    // If button1Pin is low jump to cases on switch 2
   {
-    if (button2State == LOW) // Checking switch 2 cases
+    if (button2State == LOW) // Checking switch 2 cases to perform stream of pulses
     {
       
       digitalWrite(led2Pin, HIGH); // First blink of the red light
-      delayMicroseconds(50); // Passing the delay for the HIGH red light
+      delayMicroseconds(50); // Passing the delay for the HIGH red light of 50 microseconds
       digitalWrite(led2Pin, LOW); // Putting off the red light 
 
-      for (int i = 0; i < c; i++) //For loop for the Led1
+      for (int i = 0; i < c; i++) //For loop for the Normal wave mode
       {
         
         digitalWrite(led1Pin, HIGH);
-        delayMicroseconds(a + (i * 50));
+        delayMicroseconds(a + (i * 50)); // Incremental delay of 50 microseconds with each cycle
         digitalWrite(led1Pin, LOW);
-        delay(b);
+        delayMicroseconds(b); // delay of b microseconds between consecutive pulses
       }
-      delay(d);
+      delayMicroseconds(d); // Delay of d microseconds after completion of one cycle of C pulses
     }
-    // perform stream of pulses
-    else
+    
+    else // run with a modified waveform cycle (Inverted waveform)
     {
       
-      digitalWrite(led2Pin, HIGH);
-      delayMicroseconds(50);
-      digitalWrite(led2Pin, LOW);
-    // disable stream of pulses
+      digitalWrite(led2Pin, HIGH); /// First blink of the red light
+      delayMicroseconds(50); // Passing the delay for the HIGH red light of 50 microseconds
+      digitalWrite(led2Pin, LOW); // Putting off the red light
       
-      for (int i = c; i > 0; i--)
+      for (int i = c; i > 0; i--) //For loop for the modified waveform cycle (inverted signal a)
       {
-        digitalWrite(led1Pin, HIGH);
-        delayMicroseconds(a + ((i - 1) * 50));
+        digitalWrite(led1Pin, HIGH);  
+        delayMicroseconds(a + ((i - 1) * 50)); // Decremental delay of 50 microseconds with each cycle
         digitalWrite(led1Pin, LOW);
-        delayMicroseconds(b);
+        delayMicroseconds(b); // delay of b microseconds between consecutive pulses
       }
-      delayMicroseconds(d);
+      delayMicroseconds(d); // Delay of d microseconds after completion of one cycle of C pulses
     }
   }
-  else 
+  else // Executuions if button1Pin is HIGH
   {
-    digitalWrite(led2Pin, LOW);
-    digitalWrite(led2Pin, LOW);
+    digitalWrite(led2Pin, LOW); // Red led is put off
+    digitalWrite(led2Pin, LOW); // Green led is put off
   }
 }
