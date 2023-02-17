@@ -32,16 +32,16 @@ void loop() {
   button1State = digitalRead(button1Pin); //Fetches the state of button1 to know if its at LOW or HIGH state
   button2State = digitalRead(button2Pin); //Fetches state of the second button
   
-  if (button1State == LOW)    //Condition 1
+  if (button1State == LOW)    // If switch one is low jump to cases on switch 2
   {
-    if (button2State == LOW) //
+    if (button2State == LOW) // Checking switch 2 cases
     {
       
-      digitalWrite(led2Pin, HIGH);
-      delay(50);
-      digitalWrite(led2Pin, LOW);
+      digitalWrite(led2Pin, HIGH); // First blink of the red light
+      delay(50); // Pasing the delay
+      digitalWrite(led2Pin, LOW); // Putting of the red light 
 
-      for (int i = 0; i < c; i++)
+      for (int i = 0; i < c; i++) //For loop 
       {
         
         digitalWrite(led1Pin, HIGH);
