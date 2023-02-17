@@ -38,9 +38,10 @@ void loop() {
     {
       
       digitalWrite(led2Pin, HIGH); // First blink of the red light
+      delay(50); // Pasing the delay
       digitalWrite(led2Pin, LOW); // Putting of the red light 
 
-      for (int i = 0; i < c; i++) //For loop for the Led1()
+      for (int i = 0; i < c; i++) //For loop for the Led1
       {
         
         digitalWrite(led1Pin, HIGH);
@@ -55,6 +56,7 @@ void loop() {
     {
       
       digitalWrite(led2Pin, HIGH);
+      delay(50);
       digitalWrite(led2Pin, LOW);
     // disable stream of pulses
       
