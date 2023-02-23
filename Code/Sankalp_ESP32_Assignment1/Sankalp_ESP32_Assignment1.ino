@@ -2,7 +2,7 @@
 
 int button1Pin = 27; // Pin 3 is assigned to button 1
 int button2Pin = 12; // Pin 2 is assigned to button 2
-int led1Pin = 34; // Pin 4 will be Led1 terminal
+int led1Pin = 25; // Pin 4 will be Led1 terminal
 int led2Pin = 32; // Pin 5 will be for Led2
 
 // Calculating the Paramater using my surname "ARORA"
